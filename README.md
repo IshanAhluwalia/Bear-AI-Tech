@@ -1,8 +1,29 @@
 # Bear AI Technical Take-Home Assignment
 
-## Complete Setup (Do This First)
+### Step 1: Clone the Repository
+```bash
+# Clone the repository to your desired location
+git clone https://github.com/IshanAhluwalia/Bear-AI-Tech.git
 
-### System Prerequisites
+# Navigate into the project directory
+cd Bear-AI-Tech
+```
+
+### Step 2: System Prerequisites
+
+**macOS Quick Install (Recommended):**
+```bash
+# Install Homebrew if not already installed
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install everything at once
+brew install python3 postgresql@15 git
+
+# Start PostgreSQL (will auto-start on future reboots)
+brew services start postgresql@15
+```
+
+**Manual Installation:**
 1. **Python 3.8+** 
    - macOS: `brew install python3` or download from python.org
    - Windows: Download from python.org and add to PATH
@@ -17,67 +38,52 @@
    - Windows: Download from postgresql.org
    - Linux: `sudo apt install postgresql postgresql-contrib`
 
-4. **Git** (if cloning repository)
+4. **Git** (if not already installed)
    - macOS: `xcode-select --install` or `brew install git`
    - Windows: Download from git-scm.com
    - Linux: `sudo apt install git`
 
-### macOS Quick Setup
+### Step 3: Project Environment Setup
+
+**Run these commands from inside the Bear-AI-Tech directory!**
+
 ```bash
-# Install Homebrew if not already installed
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Make sure you're in the project directory
+pwd  # Should show: /path/to/Bear-AI-Tech
 
-# Install everything at once
-brew install python3 postgresql@15 git
-
-# Start PostgreSQL (will auto-start on future reboots)
-brew services start postgresql@15
-```
-
-### Project Setup
-```bash
-# Navigate to project directory
-cd "/path/to/Bear AI Take-Home"
-
-# Create and activate virtual environment
+# Create virtual environment
 python3 -m venv venv
+
+# Activate virtual environment (CRITICAL - don't skip!)
 source venv/bin/activate  # macOS/Linux
 # OR venv\Scripts\activate  # Windows
 
-# Install all dependencies
+# You should see (venv) at the start of your terminal prompt
+
+# Upgrade pip and install dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Start PostgreSQL if not already running
-brew services start postgresql@15  # macOS
-# OR sudo systemctl start postgresql  # Linux
-# OR start via Windows Services  # Windows
-
-# Verify setup
+# Verify setup works
 python setup_test.py
 ```
 
-**🧪 Setup Verification Script**  
-The `setup_test.py` script automatically verifies:
-- Python version compatibility
-- All required modules installed
-- Project structure complete
-- Chrome browser available
-- Database system running
-- Virtual environment active
-- Basic functionality working
+**✅ Setup is complete when the verification script shows all 7/7 checks passing.**
 
- **Setup is complete when the verification script shows all checks passing.**
+---
 
-------
+## 🕷️ Stage 1: Web Scraping (5-10 minutes)
 
-##  Stage 1: Web Scraping (5 minutes)
-
-**Prerequisites**: Complete setup above, active ChatGPT account
+**Prerequisites**: Complete setup above + active ChatGPT account
 
 ```bash
-# Navigate to scraper and run
+# IMPORTANT: Make sure virtual environment is activated!
+# You should see (venv) in your terminal prompt
+
+# Navigate to scraper directory
 cd stage1_scraper
+
+# Run the scraper
 python GPT_scraper.py
 ```
 
@@ -90,6 +96,11 @@ python GPT_scraper.py
 
 **Output**: `brand_mentions_results_[timestamp].json` with complete analysis
 
+**Common Issues & Fixes:**
+- **Virtual env not activated**: Run `source ../venv/bin/activate` from stage1_scraper directory
+- **Chrome not opening**: Ensure Chrome is installed (not Chromium)
+- **ChatGPT issues**: Make sure you're logged in and have a working account
+
 ---
 
 ## 🌐 Stage 2: REST API (1 minute)
@@ -97,8 +108,12 @@ python GPT_scraper.py
 **Prerequisites**: Stage 1 completed (JSON file exists)
 
 ```bash
-# Navigate to API directory
+# From stage1_scraper directory, go back to project root and enter stage2_api
 cd ../stage2_api
+
+# Make sure virtual environment is still activated
+# You should see (venv) in your terminal prompt
+# If not, run: source ../venv/bin/activate
 
 # Load data and start server
 python data_loader.py
@@ -109,42 +124,136 @@ python main.py
 
 ### Test the API
 ```bash
-# Test endpoints
+# Open a new terminal and test endpoints
 curl http://localhost:8000/mentions
 curl http://localhost:8000/mentions/Nike
 curl http://localhost:8000/health
 
 # Interactive documentation
-open http://localhost:8000/docs
+open http://localhost:8000/docs  # macOS
+# OR visit http://localhost:8000/docs in your browser
 ```
 
 ---
 
-## 🧪 Complete Test Run
+## 🧪 Complete Test Run (Copy-Paste Ready)
 
+**Start Fresh (One-Time Setup):**
 ```bash
-# 1. One-time setup (if not done)
-cd "/path/to/Bear AI Take-Home"
+# 1. Clone and navigate
+git clone https://github.com/IshanAhluwalia/Bear-AI-Tech.git
+cd Bear-AI-Tech
+
+# 2. Install system dependencies (macOS)
+brew install python3 postgresql@15 git
+brew services start postgresql@15
+
+# 3. Setup project environment
+python3 -m venv venv
 source venv/bin/activate
-python setup_test.py  # Verify everything ready
+pip install --upgrade pip
+pip install -r requirements.txt
+python setup_test.py  # Should show 7/7 checks pass
 
-# 2. Run Stage 1
+# 4. Run Stage 1
 cd stage1_scraper
-python GPT_scraper.py  # Follow prompts
+python GPT_scraper.py  # Follow prompts, login to ChatGPT
 
-# 3. Run Stage 2  
+# 5. Run Stage 2  
 cd ../stage2_api
-python data_loader.py && python main.py
+python data_loader.py
+python main.py
+```
 
-# 4. Test API
-curl http://localhost:8000/mentions
+**Subsequent Runs (After Setup):**
+```bash
+# Navigate to project and activate environment
+cd Bear-AI-Tech
+source venv/bin/activate
+
+# Run Stage 1
+cd stage1_scraper
+python GPT_scraper.py
+
+# Run Stage 2
+cd ../stage2_api
+python data_loader.py
+python main.py
+```
+
+---
+
+## 🔧 Troubleshooting & Common Errors
+
+### Virtual Environment Issues
+```bash
+# Problem: (venv) not showing in terminal
+# Solution: Activate the virtual environment
+cd Bear-AI-Tech  # Go to project root
+source venv/bin/activate
+
+# Problem: "No module named 'selenium'" or similar
+# Solution: Make sure venv is activated, then reinstall
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Directory Navigation Issues
+```bash
+# Problem: "No such file or directory: stage1_scraper"
+# Solution: Make sure you're in the project root
+pwd  # Should show: /path/to/Bear-AI-Tech
+ls   # Should show: stage1_scraper, stage2_api, venv, etc.
+
+# If not in project root:
+cd /path/to/Bear-AI-Tech  # Replace with your actual path
+```
+
+### Database Issues
+```bash
+# Problem: PostgreSQL not running
+# Solution: Start PostgreSQL
+brew services start postgresql@15  # macOS
+sudo systemctl start postgresql    # Linux
+# Windows: Start via Services manager
+```
+
+### Chrome/Selenium Issues
+```bash
+# Problem: Chrome not found or not opening
+# Solution: Install Chrome browser (not Chromium)
+# Download from: https://www.google.com/chrome/
+
+# Problem: WebDriver issues
+# Solution: Update webdriver-manager
+pip install --upgrade webdriver-manager
+```
+
+### Port Issues
+```bash
+# Problem: "Port 8000 already in use"
+# Solution: Kill existing process
+lsof -ti:8000 | xargs kill -9  # macOS/Linux
+# OR change port in stage2_api/main.py
+```
+
+### Quick Reset Commands
+```bash
+# Reset everything and start fresh
+cd Bear-AI-Tech
+source venv/bin/activate
+brew services restart postgresql@15
+pip install --upgrade -r requirements.txt
+python setup_test.py
 ```
 
 ---
 
 ## 📊 Expected Output
 
-### Stage 1: `brand_mentions_results_[timestamp].json`
+### Stage 1: Complete JSON File Example
+The scraper creates `brand_mentions_results_[timestamp].json` with complete analysis:
+
 ```json
 {
   "analysis_timestamp": "2025-06-23T19:31:49.692708",
@@ -245,9 +354,9 @@ curl http://localhost:8000/mentions
 }
 ```
 
-### Stage 2: API Response Examples
+### Stage 2: Complete API Response Examples
 
-#### GET `/mentions` - All Brands
+#### GET `/mentions` - All Brands Summary
 ```json
 {
   "total_mentions": 110,
@@ -355,83 +464,79 @@ curl http://localhost:8000/mentions
 }
 ```
 
+#### GET `/health` - Health Check
+```json
+{
+  "status": "healthy",
+  "timestamp": "2025-06-23T19:31:49"
+}
+```
+
 ---
 
 ## 🏗️ Project Structure
 
 ```
-Bear AI Take-Home/
-├── stage1_scraper/           # Web scraping ChatGPT
+Bear-AI-Tech/
+├── README.md                 # This guide
+├── requirements.txt          # Python dependencies
+├── setup_test.py            # Environment verification
+├── venv/                    # Virtual environment (created during setup)
+├── stage1_scraper/
 │   ├── GPT_scraper.py       # Main scraper script
 │   ├── prompts.py           # 10 sportswear prompts
 │   ├── data_processor.py    # Brand mention processing
-│   └── *.json               # Results
-├── stage2_api/              # REST API
-│   ├── main.py              # FastAPI application
-│   ├── database.py          # PostgreSQL models
-│   ├── data_loader.py       # Load scraped data
-│   └── models.py            # API response models
-├── venv/                    # Virtual environment
-├── requirements.txt         # All dependencies
-├── setup_test.py           # Setup verification
-└── README.md               # This guide
+│   └── *.json               # Results (created after running)
+└── stage2_api/
+    ├── main.py              # FastAPI application
+    ├── database.py          # PostgreSQL models
+    ├── data_loader.py       # Load scraped data
+    └── models.py            # API response models
 ```
 
 ---
 
-## 🔧 Troubleshooting
+## ✅ Success Checklist
 
-### Setup Issues
-- **Python not found**: Ensure Python 3.8+ installed and in PATH
-- **Virtual environment**: Use `python3 -m venv venv` if `python` fails
-- **PostgreSQL not starting**: Try `brew services restart postgresql@15`
-- **Permission errors**: Use `sudo` on Linux/macOS or run as Administrator
+**Environment Setup:**
+- [ ] Repository cloned: `git clone https://github.com/IshanAhluwalia/Bear-AI-Tech.git`
+- [ ] In project directory: `cd Bear-AI-Tech`
+- [ ] System dependencies installed (Python, Chrome, PostgreSQL)
+- [ ] Virtual environment created: `python3 -m venv venv`
+- [ ] Virtual environment activated: `source venv/bin/activate` (see `(venv)` in prompt)
+- [ ] Dependencies installed: `pip install -r requirements.txt`
+- [ ] Setup verification passed: `python setup_test.py` shows 7/7 checks
 
-### Stage 1 Issues  
-- **Chrome not found**: Install Chrome browser (not Chromium)
-- **ChatGPT login**: Manual login required in browser window
-- **No responses**: Check internet connection and ChatGPT account
+**Stage 1 Execution:**
+- [ ] In scraper directory: `cd stage1_scraper`
+- [ ] Virtual environment still active (see `(venv)` in prompt)
+- [ ] Scraper started: `python GPT_scraper.py`
+- [ ] ChatGPT login completed in browser
+- [ ] JSON results file created with timestamp
 
-### Stage 2 Issues
-- **Port 8000 busy**: Kill existing process or change port in `main.py`
-- **Database connection**: Ensure PostgreSQL is running
-- **Module errors**: Ensure virtual environment is activated
-
-### Quick Fixes
-```bash
-# Restart everything
-brew services restart postgresql@15
-source venv/bin/activate
-pip install --upgrade -r requirements.txt
-
-# Verify setup
-python setup_test.py
-```
-
----
-
-## 📋 Quick Start Checklist
-
-**✅ One-Time Setup (Do Once)**
-- [ ] Install Python 3.8+, Chrome, PostgreSQL, Git
-- [ ] Create virtual environment: `python3 -m venv venv`  
-- [ ] Activate environment: `source venv/bin/activate`
-- [ ] Install dependencies: `pip install -r requirements.txt`
-- [ ] Start PostgreSQL: `brew services start postgresql@15`
-- [ ] Verify setup: `python setup_test.py` (all checks pass)
-
-**✅ Stage 1 Execution**
-- [ ] `cd stage1_scraper && python GPT_scraper.py`
-- [ ] Log into ChatGPT when browser opens
-- [ ] Wait for completion, verify JSON file created
-
-**✅ Stage 2 Execution**  
-- [ ] `cd ../stage2_api && python data_loader.py && python main.py`
-- [ ] Test API: `curl http://localhost:8000/mentions`
+**Stage 2 Execution:**
+- [ ] In API directory: `cd ../stage2_api`
+- [ ] Virtual environment still active (see `(venv)` in prompt)
+- [ ] Data loaded: `python data_loader.py`
+- [ ] API started: `python main.py`
+- [ ] API accessible: `curl http://localhost:8000/mentions`
 
 **🎉 Project Complete!**
 
 ---
 
-Built with Python, FastAPI, Selenium, and SQLAlchemy
+
+1. **Always check for `(venv)` in your terminal prompt** - if you don't see it, run `source venv/bin/activate`
+
+2. **Use `pwd` to check your location** - you should be in the correct directory before running scripts
+
+3. **Keep the virtual environment activated** - don't close the terminal between stages
+
+4. **If something fails, run the setup verification**: `python setup_test.py`
+
+5. **For a completely fresh start**, delete the `Bear-AI-Tech` folder and start from Step 1
+
+---
+
+Built with Python, FastAPI, Selenium, and SQLAlchemy | Made foolproof for seamless setup 🚀
 
