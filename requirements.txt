@@ -1,0 +1,27 @@
+# Bear AI Take-Home Project Requirements
+# This file contains all dependencies for both Stage 1 and Stage 2
+
+# Stage 1 - Web Scraping
+selenium==4.15.2
+webdriver-manager==4.0.1
+beautifulsoup4==4.12.2
+python-dotenv==1.0.0
+requests==2.31.0
+
+# Stage 2 - API
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+sqlalchemy==1.4.53
+psycopg2-binary==2.9.10
+PyMySQL==1.1.0
+
+# Shared Dependencies
+python-dotenv==1.0.0
+requests==2.31.0
+
+# Development/Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Note: We'll add database later once we get the core concepts working
+# For now, we'll store data in JSON files to keep things simple

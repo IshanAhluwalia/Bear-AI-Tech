@@ -1,0 +1,217 @@
+{
+  "analysis_timestamp": "2025-06-23T20:35:45.692708",
+  "summary": {
+    "total_responses_processed": 10,
+    "overall_brand_totals": {
+      "Nike": 58,
+      "Adidas": 33,
+      "Hoka": 7,
+      "New Balance": 4,
+      "Jordan": 8
+    },
+    "grand_total_mentions": 110
+  },
+  "comprehensive_analysis": {
+    "brand_analysis": {
+      "Nike": {
+        "total_mentions": 58,
+        "percentage": 52.73,
+        "avg_per_response": 5.8,
+        "max_in_single_response": 12,
+        "responses_with_mentions": 8,
+        "response_coverage": 80.0
+      },
+      "Adidas": {
+        "total_mentions": 33,
+        "percentage": 30.0,
+        "avg_per_response": 3.3,
+        "max_in_single_response": 7,
+        "responses_with_mentions": 9,
+        "response_coverage": 90.0
+      },
+      "Jordan": {
+        "total_mentions": 8,
+        "percentage": 7.27,
+        "avg_per_response": 0.8,
+        "max_in_single_response": 7,
+        "responses_with_mentions": 2,
+        "response_coverage": 20.0
+      },
+      "Hoka": {
+        "total_mentions": 7,
+        "percentage": 6.36,
+        "avg_per_response": 0.7,
+        "max_in_single_response": 4,
+        "responses_with_mentions": 3,
+        "response_coverage": 30.0
+      },
+      "New Balance": {
+        "total_mentions": 4,
+        "percentage": 3.64,
+        "avg_per_response": 0.4,
+        "max_in_single_response": 2,
+        "responses_with_mentions": 3,
+        "response_coverage": 30.0
+      }
+    },
+    "response_analysis": [
+      {
+        "response_number": 1,
+        "prompt": "What are the best running shoes in 2025?",
+        "response_length": 3209,
+        "total_mentions": 17,
+        "brand_breakdown": {
+          "Nike": 7,
+          "Adidas": 7,
+          "Hoka": 3,
+          "New Balance": 0,
+          "Jordan": 0
+        },
+        "timestamp": "2025-06-23T20:27:28.964632"
+      },
+      {
+        "response_number": 2,
+        "prompt": "Top performance sneakers for athletes",
+        "response_length": 3359,
+        "total_mentions": 14,
+        "brand_breakdown": {
+          "Nike": 10,
+          "Adidas": 3,
+          "Hoka": 0,
+          "New Balance": 1,
+          "Jordan": 0
+        },
+        "timestamp": "2025-06-23T20:27:56.777819"
+      },
+      {
+        "response_number": 3,
+        "prompt": "Which basketball shoes provide the best ankle support?",
+        "response_length": 2794,
+        "total_mentions": 10,
+        "brand_breakdown": {
+          "Nike": 7,
+          "Adidas": 3,
+          "Hoka": 0,
+          "New Balance": 0,
+          "Jordan": 0
+        },
+        "timestamp": "2025-06-23T20:28:26.101993"
+      },
+      {
+        "response_number": 4,
+        "prompt": "Recommend comfortable athletic shoes for marathon training",
+        "response_length": 2468,
+        "total_mentions": 2,
+        "brand_breakdown": {
+          "Nike": 0,
+          "Adidas": 2,
+          "Hoka": 0,
+          "New Balance": 0,
+          "Jordan": 0
+        },
+        "timestamp": "2025-06-23T20:28:53.860515"
+      },
+      {
+        "response_number": 5,
+        "prompt": "What are the most popular sneaker brands among professional athletes?",
+        "response_length": 3397,
+        "total_mentions": 27,
+        "brand_breakdown": {
+          "Nike": 12,
+          "Adidas": 6,
+          "Hoka": 0,
+          "New Balance": 2,
+          "Jordan": 7
+        },
+        "timestamp": "2025-06-23T20:29:22.859750"
+      },
+      {
+        "response_number": 6,
+        "prompt": "Best shoes for cross-training and gym workouts",
+        "response_length": 3340,
+        "total_mentions": 8,
+        "brand_breakdown": {
+          "Nike": 6,
+          "Adidas": 2,
+          "Hoka": 0,
+          "New Balance": 0,
+          "Jordan": 0
+        },
+        "timestamp": "2025-06-23T20:29:51.777193"
+      },
+      {
+        "response_number": 7,
+        "prompt": "Which athletic footwear brands offer the best value for money?",
+        "response_length": 3350,
+        "total_mentions": 11,
+        "brand_breakdown": {
+          "Nike": 6,
+          "Adidas": 4,
+          "Hoka": 0,
+          "New Balance": 1,
+          "Jordan": 0
+        },
+        "timestamp": "2025-06-23T20:30:22.745197"
+      },
+      {
+        "response_number": 8,
+        "prompt": "Most innovative running shoe technologies available today",
+        "response_length": 3083,
+        "total_mentions": 7,
+        "brand_breakdown": {
+          "Nike": 4,
+          "Adidas": 3,
+          "Hoka": 0,
+          "New Balance": 0,
+          "Jordan": 0
+        },
+        "timestamp": "2025-06-23T20:30:53.783554"
+      },
+      {
+        "response_number": 9,
+        "prompt": "What shoes do NBA players prefer for performance?",
+        "response_length": 2699,
+        "total_mentions": 10,
+        "brand_breakdown": {
+          "Nike": 6,
+          "Adidas": 3,
+          "Hoka": 0,
+          "New Balance": 0,
+          "Jordan": 1
+        },
+        "timestamp": "2025-06-23T20:31:21.921706"
+      },
+      {
+        "response_number": 10,
+        "prompt": "Best athletic shoes for people with wide feet",
+        "response_length": 2859,
+        "total_mentions": 4,
+        "brand_breakdown": {
+          "Nike": 0,
+          "Adidas": 0,
+          "Hoka": 4,
+          "New Balance": 0,
+          "Jordan": 0
+        },
+        "timestamp": "2025-06-23T20:31:49.692573"
+      }
+    ],
+    "key_insights": {
+      "most_mentions_single_response": {
+        "prompt": "What are the most popular sneaker brands among professional athletes?",
+        "total_mentions": 27,
+        "response_number": 5
+      },
+      "top_brand_overall": {
+        "brand": "Nike",
+        "total_mentions": 58,
+        "percentage": 52.73
+      },
+      "most_consistent_brand": {
+        "brand": "Adidas",
+        "response_coverage": 90.0,
+        "appears_in_responses": 9
+      }
+    }
+  }
+} 
