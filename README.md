@@ -120,7 +120,7 @@ python data_loader.py
 python main.py
 ```
 
-**API Ready**: `http://localhost:8000`
+**API Ready**: `http://localhost:8000/docs` (Interactive API documentation)
 
 ### Test the API
 ```bash
